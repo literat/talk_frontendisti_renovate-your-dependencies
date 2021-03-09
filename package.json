@@ -1,0 +1,17 @@
+{
+  "name": "talk_frontendisti_renovate-your-dependencies",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:literat/talk_frontendisti_renovate-your-dependencies.git",
+  "author": "literat <tomas@litera.me>",
+  "license": "MIT",
+  "devDependencies": {
+    "mdx-deck": "^3.1.0"
+  },
+  "scripts": {
+    "start": "mdx-deck deck.mdx",
+    "prebuild": "rimraf dist",
+    "build": "npm run build:site",
+    "build:site": "mdx-deck build deck.mdx"
+  }
+}

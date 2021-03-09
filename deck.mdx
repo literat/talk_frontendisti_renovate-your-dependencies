@@ -1,0 +1,315 @@
+import { Notes, Head, Appear, Image } from "mdx-deck";
+import gitHubDependabot from './images/github-dependabot.png'
+import gitHubSecurityAlerts from './images/github-security-alerts.png'
+import openPRs from './images/open-prs.png'
+import openPRs2 from './images/open-prs2.png'
+import prDetail from './images/pr-detail.png'
+import prDetail2 from './images/pr-detail2.png'
+import lmcLogo from './images/lmc-logo.png'
+import audit from './images/audit.gif'
+import auditResult from './images/audit-result.png'
+import slackNoise1 from './images/slack-noise-1.png'
+import slackNoise2 from './images/slack-noise-2.png'
+import slackNoise3 from './images/slack-noise-3.png'
+import pipeline from './images/pipeline.png'
+import { default as customTheme } from "./src/theme";
+export const theme = customTheme;
+
+<Head>
+  <title>Renovate Your Dependencis – Tomas Litera</title>
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:creator" content="@tomaslitera" />
+  <meta
+    property="og:image"
+    content="http://renovate-your-dependencies.netlify.com/presentation.png"
+  />
+  <meta
+    property="og:title"
+    content="Renovate your dependencies – Tomas Litera"
+  />
+</Head>
+
+<img src={lmcLogo} width="150" />
+
+# Renovate Your Dependencies
+
+[Tomas Litera](https://litera.me)
+
+<Notes>Microphone, screen recording, start timer</Notes>
+
+---
+
+## Motivation
+
+Automagically solve security updates
+
+---
+
+### Security update
+
+<Image src={gitHubDependabot} size="50%" style={{backgroundPosition: 'top'}} />
+
+---
+
+### Security alerts
+
+<Image src={gitHubSecurityAlerts} size="35%" style={{backgroundPosition: 'top'}} />
+
+---
+
+### Security audit
+
+<Image src={audit} size="65%" style={{backgroundPosition: 'top'}} />
+
+---
+
+### 😱
+
+<Image src={auditResult} size="65%" style={{backgroundPosition: 'top'}} />
+
+---
+
+## Idea → Goal
+
+<ul>
+  <Appear>
+    <li> automated - robots should done all work </li>
+    <li> separate branches and pull-request - for better and reliable testing </li>
+    <li> on-premise / self-hosted solution - private cloud </li>
+    <li> lower / solve security issues </li>
+    <li> free / low-cost 😉 </li>
+  </Appear>
+</ul>
+
+---
+
+## 🕵️‍♂️ Finding solution
+
+---
+
+@TODO: logo
+
+DependaBot
+
+<ul>
+  <Appear>
+    <li> ✅ separate PRs </li>
+    <li> ✅ security alerts </li>
+    <li> ❌ on-premise </li>
+    <li> ❗️ GitHub only </li>
+  </Appear>
+</ul>
+
+https://dependabot.com/
+
+---
+
+@TODO: logo
+
+GreenKeeper
+
+<ul>
+  <Appear>
+    <li> ✅ separate PRs </li>
+    <li> ✅ security alerts </li>
+    <li> ❌ on-premise </li>
+    <li> ❗️ Deprecated </li>
+  </Appear>
+</ul>
+
+https://greenkeeper.io/
+
+---
+
+@TODO: logo
+
+Snyk
+
+<ul>
+  <Appear>
+    <li> ✅ separate PRs </li>
+    <li> ✅ security alerts </li>
+    <li> ❗️ on-premise ( enterprise plan ) </li>
+  </Appear>
+</ul>
+
+https://snyk.io/
+
+---
+
+# 🤔 ❓
+
+---
+
+@TODO logo
+
+# Renovate
+
+<ul>
+  <Appear>
+    <li> ✅ javascript based </li>
+    <li> ✅ cli </li>
+    <li> ✅ on-premise / self-hosted </li>
+    <li> ✅ many package manager (npm, composer, ...) </li>
+  </Appear>
+</ul>
+
+https://renovate.whitesourcesoftware.com/
+
+Docs: https://docs.renovatebot.com/
+
+GitHub: https://github.com/renovatebot/renovate
+
+---
+
+## Vast configuration
+
+<ul>
+  <Appear>
+    <li> simple setup using json </li>
+    <li> autoconfiguration for repos </li>
+    <li> presets and extends </li>
+    <li> branch prefix </li>
+    <li> commit message </li>
+    <li> ... </li>
+  </Appear>
+</ul>
+
+[Self-Hosted Configuration](https://github.com/renovatebot/renovate/blob/master/docs/usage/self-hosted-configuration.md)
+[Configuration Options](https://github.com/renovatebot/renovate/blob/master/docs/usage/configuration-options.md)
+Docs: https://docs.renovatebot.com/configuration-options
+
+---
+
+## 🏎 Running speed
+
+---
+
+```javascript
+{
+  platform: 'bitbucket-server',
+  endpoint: '<server-url>',
+  repositories: [
+    '~literat/test-renovate-bot-js',
+  ],
+  enabledManagers: [
+    'npm', 'composer',
+  ],
+```
+
+---
+
+<Image src={openPRs2} size="50%" style={{backgroundPosition: 'top'}} />
+
+---
+
+<Image src={prDetail2} size="60%" style={{backgroundPosition: 'top'}} />
+
+---
+
+## Problems
+
+😟 😫 😭 😡 🤬 🤯 💩 💥
+
+---
+
+## Lot of noise
+
+---
+
+<Image src={slackNoise1} size="60%" style={{backgroundPosition: 'top'}} />
+
+---
+
+<Image src={slackNoise2} size="60%" style={{backgroundPosition: 'top'}} />
+
+---
+
+<Image src={slackNoise3} size="60%" style={{backgroundPosition: 'top'}} />
+
+
+---
+
+### PR limit
+
+```json
+{
+  "prConcurrentLimit": 10
+}
+```
+
+---
+
+### Package grouping
+
+```json
+"packageRules": [
+  {
+    "matchPackagePatterns": [ "eslint" ],
+    "groupName": "eslint"
+  }
+]
+```
+
+---
+
+### Scheduling
+
+```json
+"packageRules": [
+  {
+    "matchPackagePatterns": [ "eslint" ],
+    "groupName": "eslint",
+    "schedule": ["on the first day of the month"]
+  }
+]
+```
+
+---
+
+### Automerging
+
+```json
+{
+  "updateTypes": ["minor", "patch", "pin", "digest"],
+  "automerge": true,
+  "automergeType": "pr"
+},
+```
+
+---
+
+<Image src={pipeline} size="100%" />
+
+---
+
+## 🗣 🎶 → 🎧
+
+---
+
+# Resume
+
+<ul>
+  <Appear>
+    <li> ✅ on-premise solution </li>
+    <li> ✅ automated </li>
+    <li> ✅ separate branches and pull-request </li>
+    <li> ✅ lower security issues </li>
+    <li> ✅ ❌ security checks at all </li>
+  </Appear>
+</ul>
+
+---
+🟢 Stay Up-To-Date
+
+🛡 Stay Safe
+
+---
+
+# 👋
+
+[renovate-your-dependencies.netlify.com](http://renovate-your-dependencies.netlify.com/)
+
+Created with ❤️ using [mdx-deck](https://mdx-deck.jxnblk.com/)
+
+📺 https://www.youtube.com/watch?v=j-LGtMDYgIQ by [@robinpokorny](https://robinpokorny.com/)
