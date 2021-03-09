@@ -21,7 +21,7 @@ const Provider = ({ children }) => {
         }}
       >
         <span>10. 3. 2021 | &#123;f&#125; Frontendisti.cz</span>
-        <span>{index}/{length}</span>
+        {index > 0 ? (<span>{index}/{length-1}</span>) : null}
         <a
           css={{ color: "#0fbdcd", textDecoration: "none" }}
           href="https://twitter.com/tomaslitera"
