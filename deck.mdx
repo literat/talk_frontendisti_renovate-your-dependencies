@@ -18,6 +18,11 @@ import snyk from './images/snyk.webp'
 import renovate from './images/renovate.jpg'
 import mask from './images/mask.png'
 import { default as customTheme } from "./src/theme";
+import DemoLayout from './src/components/demo-layout'
+import Resource from './src/components/resource'
+import Link from './src/components/link'
+import { FullScreenCode } from 'mdx-deck'
+import QuoteLayout from './src/components/qoute-layout'
 export const theme = customTheme;
 
 <Head>
@@ -105,7 +110,9 @@ DependaBot
   </Appear>
 </ul>
 
-https://dependabot.com/
+<Resource>
+  <Link to="https://dependabot.com/" />
+</Resource>
 
 ---
 
@@ -122,7 +129,9 @@ GreenKeeper
   </Appear>
 </ul>
 
-https://greenkeeper.io/
+<Resource>
+  <Link to="https://greenkeeper.io/" />
+</Resource>
 
 ---
 
@@ -138,7 +147,9 @@ Snyk
   </Appear>
 </ul>
 
-https://snyk.io/
+<Resource>
+  <Link to="https://snyk.io/" />
+</Resource>
 
 ---
 
@@ -148,7 +159,7 @@ https://snyk.io/
 
 <img src={renovate} width="100" />
 
-# Renovate
+## Renovate
 
 <ul>
   <Appear>
@@ -159,11 +170,9 @@ https://snyk.io/
   </Appear>
 </ul>
 
-https://renovate.whitesourcesoftware.com/
-
-Docs: https://docs.renovatebot.com/
-
-GitHub: https://github.com/renovatebot/renovate
+<Resource>
+  <Link to="https://github.com/renovatebot/renovate" />
+</Resource>
 
 ---
 
@@ -180,17 +189,17 @@ GitHub: https://github.com/renovatebot/renovate
   </Appear>
 </ul>
 
-[Self-Hosted Configuration](https://github.com/renovatebot/renovate/blob/master/docs/usage/self-hosted-configuration.md)
-[Configuration Options](https://github.com/renovatebot/renovate/blob/master/docs/usage/configuration-options.md)
-Docs: https://docs.renovatebot.com/configuration-options
+<Resource>
+  <Link to="https://docs.renovatebot.com/configuration-options" />
+</Resource>
 
 ---
 
-## 🏎 Running speed
+## 🏎 Let`s go
 
 ---
 
-```javascript
+```json
 {
   platform: 'bitbucket-server',
   endpoint: '<server-url>',
@@ -200,6 +209,16 @@ Docs: https://docs.renovatebot.com/configuration-options
   enabledManagers: [
     'npm', 'composer',
   ],
+}
+```
+
+---
+
+```json
+{
+  "branchPrefix": "dependencies/",
+  "commitMessagePrefix": "Deps: ",
+},
 ```
 
 ---
@@ -284,6 +303,8 @@ Docs: https://docs.renovatebot.com/configuration-options
 
 ---
 
+### Automerging → reliable CI/CD
+
 <Image src={pipeline} size="100%" />
 
 ---
@@ -309,14 +330,23 @@ Docs: https://docs.renovatebot.com/configuration-options
 
 🛡 Stay Safe
 
-<img src={mask} width="300" />
-
 ---
 
 # 👋
 
-[renovate-your-dependencies.netlify.com](http://renovate-your-dependencies.netlify.com/)
+<Resource>
+  <Link to="http://frontendisti-renovate-your-dependencies.netlify.com/" />
 
-Created with ❤️ using [mdx-deck](https://mdx-deck.jxnblk.com/)
+  Created with ❤️ using <Link to="https://mdx-deck.jxnblk.com/" >mdx-deck</Link>
 
-📺 https://www.youtube.com/watch?v=j-LGtMDYgIQ by [@robinpokorny](https://robinpokorny.com/)
+  📺 <Link to="https://www.youtube.com/watch?v=j-LGtMDYgIQ" /> by <Link to="https://robinpokorny.com/">@robinpokorny</Link>
+</Resource>
+
+---
+
+# Resources
+
+<Link to="https://renovate.whitesourcesoftware.com/" style={{display: 'block', paddingTop: '5px', paddingBottom: '5px'}} />
+<Link to="https://docs.renovatebot.com/" style={{display: 'block', paddingTop: '5px', paddingBottom: '5px'}} />
+<Link to="https://github.com/renovatebot/renovate/blob/master/docs/usage/self-hosted-configuration.md" style={{display: 'block', paddingTop: '5px', paddingBottom: '5px'}} />
+<Link to="https://github.com/renovatebot/renovate/blob/master/docs/usage/configuration-options.md" style={{display: 'block', paddingTop: '5px', paddingBottom: '5px'}} />
